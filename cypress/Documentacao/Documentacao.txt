@@ -1,0 +1,75 @@
+# Documentação dos Testes Automatizados com Cypress
+
+## 1. Sobre o Projeto
+Este projeto consiste na automação de testes para a aplicação "Central de Atendimento ao Cliente TAT" utilizando o framework Cypress. O objetivo é garantir a qualidade do sistema por meio de testes automatizados, cobrindo funcionalidades como preenchimento de formulários, upload de arquivos, validação de mensagens e verificação de links externos.
+
+## 2. Pré-requisitos
+Para executar os testes, é necessário ter os seguintes itens instalados:
+
+- [Node.js](https://nodejs.org/) (versão 16 ou superior recomendada)
+- [npm](https://www.npmjs.com/) (gerenciador de pacotes do Node.js)
+- [Git](https://git-scm.com/) (opcional, para controle de versão)
+- Cypress (será instalado via npm)
+
+## 3. Instalação das Dependências
+Siga os passos abaixo para configurar o projeto:
+
+1. Clone este repositório (caso utilize controle de versão com Git):
+
+   git clone https://github.com/wlsf82/cypress-do-zero-a-nuvem.git
+   cd cypress-do-zero-a-nuvem
+
+2. Instale as dependências do projeto:
+
+   npm install
+
+
+## 4. Executando os Testes
+Os testes podem ser executados de duas formas: com interface gráfica (Cypress Test Runner) ou no terminal (modo headless).
+
+### 4.1 Executar os testes com interface gráfica
+Para abrir o Cypress Test Runner e visualizar os testes sendo executados:
+
+npm run cy:open
+
+Isso abrirá uma janela onde é possível escolher e executar os testes manualmente.
+
+### 4.2 Executar os testes no modo headless
+Para rodar os testes no terminal sem interface gráfica:
+
+npm run cy:run
+
+O Cypress executará os testes e gerará relatórios no terminal. Caso esteja configurado, um vídeo com a execução dos testes será salvo na pasta `cypress/videos`.
+
+### 4.3 Simulando um dispositivo móvel
+Para executar os testes simulando um dispositivo com 410x860 pixels:
+
+npm run cy:mobile
+
+Este comando está configurado no arquivo `package.json` e permite testar a aplicação em um viewport reduzido.
+
+## 5. Configurações Adicionais
+- O Cypress grava vídeos das execuções quando os testes são rodados no modo headless. Os arquivos são armazenados na pasta `cypress/videos`.
+- Screenshots de falhas nos testes são salvas automaticamente na pasta `cypress/screenshots`.
+- Arquivo de configuração principal: `cypress.config.js`.
+
+## 6. Contribuição
+Caso queira contribuir com melhorias nos testes:
+1. Crie um fork do repositório.
+2. Crie uma branch para sua alteração:
+
+   git checkout -b minha-alteracao
+
+3. Faça as modificações necessárias e commit:
+
+   git commit -m "Descrição da alteração"
+
+4. Envie para o repositório remoto e abra um Pull Request.
+
+## 7. Contato
+Caso tenha dúvidas ou precise de suporte, entre em contato pelo e-mail: `seu-email@example.com`.
+
+---
+
+Essa documentação tem como objetivo auxiliar qualquer pessoa a entender e executar os testes automatizados com Cypress de forma simples e eficiente.
+
