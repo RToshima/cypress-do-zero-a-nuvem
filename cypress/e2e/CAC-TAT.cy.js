@@ -4,6 +4,8 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   });
 
   it('preenche os campos obrigatórios, anexa um arquivo e envia o formulário', () => {
+    cy.clock(); // Congela o relógio do navegador
+
     cy.get('#firstName').type('Ricardo');
     cy.get('#lastName').type('Toshima');
     cy.get('#email').type('toshima.san@gmail.com');
@@ -34,21 +36,23 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('.success')
       .should('be.visible')
       .and('contain', 'Mensagem enviada com sucesso.');
-     
+
+    cy.tick(3000); // Simula a passagem de 3 segundos
+
+    // Verifica que a mensagem desapareceu após 3 segundos
+    cy.get('.success').should('not.exist');
   });
 
   it('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', () => {
-    cy.get('a[href="privacy.html"]') // Seleciona o link correto
-      .should('have.attr', 'target', '_blank'); // Verifica se ele abre em outra aba
-    
+    cy.get('a[href="privacy.html"]')
+      .should('have.attr', 'target', '_blank'); 
   });
 
   it('acessa a página da política de privacidade removendo o target e então clicando no link', () => {
     cy.get('a[href="privacy.html"]')
-      .invoke('removeAttr', 'target') // Remove o atributo target para abrir na mesma aba
-      .click(); // Agora clica no link
+      .invoke('removeAttr', 'target')
+      .click();
   
-    // Verifica se a URL mudou corretamente
     cy.url().should('include', 'privacy.html');
   });
 
