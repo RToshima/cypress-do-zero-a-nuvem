@@ -3,6 +3,13 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.visit('./src/index.html'); // Acessa a aplicação antes de cada teste
   });
 
+  it('encontra o gato escondido e o exibe', () => {
+    cy.get('#cat')
+      .should('not.be.visible')  // Confirma que o gato está escondido
+      .invoke('show')            // Força a exibição
+      .should('be.visible');     // Agora verifica se ele está visível
+  });
+
   it('preenche os campos obrigatórios, anexa um arquivo e envia o formulário', () => {
     cy.get('#firstName').type('Ricardo');
     cy.get('#lastName').type('Toshima');
